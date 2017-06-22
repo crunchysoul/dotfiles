@@ -1,14 +1,6 @@
 "*****************************************************************************
 " vim-plug:
 " https://github.com/junegunn/vim-plug
-"
-" Self-upgrade	:PlugUpgrade
-" Install	    :PlugInstall
-" Update	    :PlugUpdate
-" View Changes	:D or :PlugDiff
-" Remove	    1. comment out below
-" 		        2. reload vimrc (:source ~/.vimrc)
-"		        3. :PlugClean
 "*****************************************************************************
 
 " Plugins will be downloaded under the specified directory:
@@ -53,7 +45,7 @@ set scrolloff=8
 set nowrap              " don't wrap text
 set showmatch           " highlight matching [{()}]
 
-" Search
+" Search:
 set incsearch           " like morden search
 set hlsearch            " highlight found words
 
@@ -155,7 +147,6 @@ let g:airline_powerline_fonts = 1
 " gvim(MacVim) specific Config:
 "*****************************************************************************
 
-
 if has('gui_running')
     set guifont=Hack:h14            " gvim font
     set guioptions-=L               " hide left scrollbar
@@ -163,9 +154,8 @@ if has('gui_running')
     set background=dark             " background for colorscheme
     colorscheme gruvbox
     let g:airline_theme='bubblegum'
-
 endif
-
+"
 "
 "
 "
