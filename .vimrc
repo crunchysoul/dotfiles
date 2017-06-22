@@ -25,6 +25,9 @@ Plug 'guns/xterm-color-table.vim'
 " Colorschemes packs:
 Plug 'flazz/vim-colorschemes'
 
+" NERDTree-git-plugin:
+Plug 'xuyuanp/nerdtree-git-plugin'
+
 " List ends here. Plugins become visible to Vim after this call:
 call plug#end()
 
