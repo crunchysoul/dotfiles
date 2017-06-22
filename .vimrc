@@ -28,6 +28,9 @@ Plug 'flazz/vim-colorschemes'
 " NERDTree-git-plugin:
 Plug 'xuyuanp/nerdtree-git-plugin'
 
+" Fugitive.vim Git wrapper:
+Plug 'tpope/vim-fugitive'
+
 " List ends here. Plugins become visible to Vim after this call:
 call plug#end()
 
@@ -86,6 +89,10 @@ map <Tab> <C-W>W
 " map gT/gt to H/L for switch tabs:
 nnoremap H gT
 nnoremap L gt
+
+" Expending menu:
+set wildmenu
+set wildmode=longest:list,full
 
 
 
