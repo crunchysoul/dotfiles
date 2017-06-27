@@ -31,6 +31,12 @@ Plug 'xuyuanp/nerdtree-git-plugin'
 " Fugitive.vim Git wrapper:
 Plug 'tpope/vim-fugitive'
 
+" Latex lervag/vimtex:
+Plug 'lervag/vimtex'
+
+" vimIM:
+"Plug 'vim-scripts/VimIM'
+
 " List ends here. Plugins become visible to Vim after this call:
 call plug#end()
 
@@ -41,6 +47,7 @@ call plug#end()
 " General Vim Config:
 "*****************************************************************************
 
+set guifontwide=STSong:h14      " gvim Chinesefont
 set hidden              " speed up
 set history=100         " speed up
 
@@ -48,7 +55,7 @@ syntax enable           " enable syntax processing
 set number              " line numbers
 set cursorline          " highlight the current line
 set scrolloff=8
-set nowrap              " don't wrap text
+"set nowrap              " don't wrap text
 set showmatch           " highlight matching [{()}]
 
 " Search:
@@ -56,6 +63,7 @@ set incsearch           " like morden search
 set hlsearch            " highlight found words
 
 " Indentation:
+filetype indent on      " file specific indent on
 set autoindent          " auto-indent
 set smartindent         
 set tabstop=4           " tab spacing
@@ -64,6 +72,19 @@ set shiftwidth=4        " indent/outdent by 4 columns
 set shiftround          " always indent/outdent to the nearest tabstop
 set smarttab            " use tabs at the start of a line, spaces elsewhere
 set expandtab           " use spaces instead of tabs
+
+" Text wrap:
+set textwidth=80
+set wrap linebreak nolist
+
+" Folding:
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+set foldmethod=indent   " fold based on indent level
+
+" space open/closes folds
+nnoremap <space> za
 
 " Set line number colour:
 highlight LineNr ctermbg=16
@@ -86,16 +107,23 @@ nnoremap <leader>u :GundoToggle<CR>
 " map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 map <Tab> <C-W>W
 
-" map gT/gt to H/L for switch tabs:
-nnoremap H gT
-nnoremap L gt
+" map gT/gt to H/L for switch tabs:(conflict move window)
+"nnoremap H gT
+"nnoremap L gt
 
 " Expending menu:
 set wildmenu
 set wildmode=longest:list,full
 
+" Increase scroll speed:
+set ttyfast
 
+" buffer screen updates instead of always updating:
+set lazyredraw
 
+" Using j/k for softlines(wrap) as well:
+nnoremap j gj
+nnoremap k gk
 
 "*****************************************************************************
 " vim-NERDTree config:
@@ -158,19 +186,44 @@ let g:airline_powerline_fonts = 1
 "*****************************************************************************
 
 if has('gui_running')
+    set encoding=utf-8
+    set lines=43 columns=146        " default gvim window size
     set guifont=Hack:h14            " gvim font
+    "set guifontwide=STSong:h14      " gvim Chinesefont
     set guioptions-=L               " hide left scrollbar
     set guioptions-=r               " hide right scrollbar
     set background=dark             " background for colorscheme
     colorscheme gruvbox
     let g:airline_theme='bubblegum'
 endif
-"
-"
-"
-"
-"
-"
+
+
+
+
+"*****************************************************************************
+" Latex (latexmk/vimtex) Config: in ~/.latexmk file
+"*****************************************************************************
+
+" Diasble callback function to avoid terminal servername warning:
+let g:vimtex_compiler_latexmk = {'callback' : 0}
+
+" Other tex setting for faster editing performance:
+"let g:tex_flavor = "latex"
+let g:tex_fast = "cmMprs"
+let g:tex_conceal = ""
+let g:tex_fold_enabled = 0
+let g:tex_comment_nospell = 1
+
+
+
+
+"*****************************************************************************
+" VimIM Config: ~/.vim/plugged/VimIM/plugin:
+"*****************************************************************************
+
+" Disable cloud database:
+"let g:vimim_plugin = '~/.vim/plugged/VimIM/plugin'
+"let g:vimim_cloud =-1 
 "
 "
 "
