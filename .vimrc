@@ -125,6 +125,9 @@ set lazyredraw
 nnoremap j gj
 nnoremap k gk
 
+
+
+
 "*****************************************************************************
 " vim-NERDTree config:
 "*****************************************************************************
@@ -186,10 +189,12 @@ let g:airline_powerline_fonts = 1
 "*****************************************************************************
 
 if has('gui_running')
-    set encoding=utf-8
+    "set encoding=utf-8
+    "set fileencoding=chinese
+    "set fileencodings=ucs-bom,utf-8,chinese,gb18030,gbk,gb2312,cp936,prc,taiwan,latin-1
     set lines=43 columns=146        " default gvim window size
     set guifont=Hack:h14            " gvim font
-    "set guifontwide=STSong:h14      " gvim Chinesefont
+    set guifontwide=STSong:h14      " gvim Chinesefont
     set guioptions-=L               " hide left scrollbar
     set guioptions-=r               " hide right scrollbar
     set background=dark             " background for colorscheme
